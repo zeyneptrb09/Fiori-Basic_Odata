@@ -1,0 +1,38 @@
+<mvc:View controllerName="project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Table id="myTable" inset="false" items="{formData>/}">
+    <columns>
+        <Column><Text text="ÜRÜN TİPİ" /></Column>
+        <Column><Text text="FORM NO" /></Column>
+        <Column><Text text="REV NO" /></Column>
+        <Column><Text text="KARAKTER" /></Column>
+        <Column><Text text="IND" /></Column>
+        <Column><Text text="KARAKTER TİPİ" /></Column>
+        <Column><Text text="DEĞER" /></Column>
+        <Column><Text text="DEĞER TANIMI" /></Column>
+        <Column><Text text="TEXT" /></Column>
+        <Column><Text text="TAB" /></Column>
+    </columns>
+
+    <items>
+        <ColumnListItem>
+            <cells>
+                 <Text text="{formData>URUNTIPI}" />
+                <Text text="{formData>FORMNO}" />
+                <Text text="{formData>REVNO}" />
+                <Text text="{formData>KARAKTER}" />
+                <Text text="{formData>IND}" />
+                <Text text="{formData>KARAKTERT}" />
+                <Text text="{formData>DEGER}" />
+                <Text text="{formData>DEGERTANIM}" />
+                <Text text="{formData>TEXT}" />
+                <Text text="{formData>TAB}" />
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
+    </Page>
+   
+</mvc:View>

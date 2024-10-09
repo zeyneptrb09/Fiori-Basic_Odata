@@ -1,0 +1,39 @@
+<mvc:View controllerName="project2.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <App id="app">
+    <!--<Table id="myTable" inset="false" items="{/FormDataSet}">
+       <columns>   
+        <Column><Text text="ÜRÜN TİPİ" /></Column>
+        <Column><Text text="FORM NO" /></Column>
+        <Column><Text text="REV NO" /></Column>
+        <Column><Text text="KARAKTER" /></Column>
+        <Column><Text text="IND" /></Column>
+        <Column><Text text="KARAKTER TİPİ" /></Column>
+        <Column><Text text="DEĞER" /></Column>
+        <Column><Text text="DEĞER TANIMI" /></Column>
+        <Column><Text text="TEXT" /></Column>
+        <Column><Text text="TAB" /></Column>
+        </columns>
+
+        
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{URUNTIPI}" />
+                    <Text text="{FORMNO}" />
+                    <Text text="{REVNO}" />
+                    <Text text="{KARAKTER}" />
+                    <Text text="{IND}" />
+                    <Text text="{KARAKTERT}" />
+                    <Text text="{DEGER}" />
+                    <Text text="{DEGERTANIM}" />
+                    <Text text="{TEXT}" />
+                    <Text text="{TAB}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>-->
+    </App>
+</mvc:View>

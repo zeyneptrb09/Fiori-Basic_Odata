@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="/EGBS/PC_SRV" xml:lang="tr" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="UserList" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LOGINID"/>
+                </Key>
+                <Property Name="LOGINID" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Dallanma adı" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="EX_LOGINID" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="External User" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="PASS" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Parola" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LOCKED" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Partiler" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FormHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="URUNTIPI"/>
+                    <PropertyRef Name="FORMNO"/>
+                    <PropertyRef Name="REVNO"/>
+                </Key>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FORMNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FORM No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="REVNO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Rev No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="YAPI" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="SKY Düğüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="URUNKODU" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TARIH" Type="Edm.DateTime" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="MUSTERI_NO" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TAHSEVK_TARIHI" Type="Edm.DateTime" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ULKENO" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Ayrt.tanımlanmamış alan, muhtemelen yama dzy.kullanılabilir" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ISLEM" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Gösterge" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DURUM_ONCEKI" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ALTBOLUM_ONCEKI" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Alt bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DURUM" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ALTBOLUM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Alt bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="HAZIRLAYAN_ID" Type="Edm.String" Nullable="false" MaxLength="23" sap:label="Hazırlayan ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="HAZIRLAYAN_ADI" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Hazırlayan adı" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TANIM" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="FrmHDR" Relationship="/EGBS/PC_SRV.Form" FromRole="FromRole_Form" ToRole="ToRole_Form"/>
+                <NavigationProperty Name="NAV_BOM" Relationship="/EGBS/PC_SRV.AS_BOM" FromRole="FromRole_AS_BOM" ToRole="ToRole_AS_BOM"/>
+            </EntityType>
+            <EntityType Name="FormData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="URUNTIPI"/>
+                    <PropertyRef Name="FORMNO"/>
+                    <PropertyRef Name="REVNO"/>
+                </Key>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FORMNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FORM No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="REVNO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Rev No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="KARAKTER" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Karakteristik" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="IND" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Index" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="KARAKTERT" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DEGER" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DEGERTANIM" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TEXT" Type="Edm.String" Nullable="false" MaxLength="128" sap:label="Değer tanımı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TAB" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Tab" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="UrunGruplari" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="USTID"/>
+                    <PropertyRef Name="ALTID"/>
+                </Key>
+                <Property Name="USTID" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="SKY Düğüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ALTID" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="SKY Düğüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="YAPI_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="SKY Düğüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TANIM" Type="Edm.String" Nullable="false" MaxLength="50" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SILINDI" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Gösterge" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ENTANIM" Type="Edm.String" Nullable="false" MaxLength="50" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FormListe" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="URUNTIPI"/>
+                    <PropertyRef Name="FORMNO"/>
+                    <PropertyRef Name="REVNO"/>
+                </Key>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FORMNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FORM No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="REVNO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Rev No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="YAPI" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="SKY Düğüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SIPTURU" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Satış blg.türü" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="URUNKODU" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TARIH" Type="Edm.DateTime" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MUSTERI_NO" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MARKA" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MODEL" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Model" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TAHSEVK_TARIHI" Type="Edm.DateTime" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TOPLAM_MIKTAR" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Yedekler" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ULKENO" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Ayrt.tanımlanmamış alan, muhtemelen yama dzy.kullanılabilir" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ISLEM" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Gösterge" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DURUM_ONCEKI" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ALTBOLUM_ONCEKI" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Alt bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DURUM" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ALTBOLUM" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Alt bölüm ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="HAZIRLAYAN_ID" Type="Edm.String" Nullable="false" MaxLength="23" sap:label="Hazırlayan ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="HAZIRLAYAN_ADI" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Hazırlayan adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TIP" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Tip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TANIM" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PARABIRIMI" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="MUSTERI" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ULKE" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZWUG_ENABLE" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Gösterge" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Ulkeler" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LANGUAGE"/>
+                    <PropertyRef Name="VALUE"/>
+                </Key>
+                <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Dil" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VALUE" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VALDESCR" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LANGUAGE_ISO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Dil (ISO)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Musteriler" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LANGUAGE"/>
+                    <PropertyRef Name="VALUE"/>
+                </Key>
+                <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Dil" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VALUE" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VALDESCR" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LANGUAGE_ISO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Dil (ISO)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FormFiyat" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="URUNTIPI"/>
+                    <PropertyRef Name="FORMNO"/>
+                    <PropertyRef Name="REVNO"/>
+                </Key>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FORMNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FORM No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="REVNO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Rev No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="URUNKODU" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TARIH" Type="Edm.DateTime" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BAZ_SATIS" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unit="PBRM" sap:label="Net fiyat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BAZ_FABRIKA" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unit="PBRM" sap:label="Net fiyat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PBRM" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="FARK_SATIS" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unit="PBRM" sap:label="Net fiyat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FARK_FABRIKA" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unit="PBRM" sap:label="Net fiyat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HATA" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Bool değişkenleri (X= doğru, -= yanlış, boşluk= bilinmiyor)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MESAJ" Type="Edm.String" Nullable="false" MaxLength="1024" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="NAV_FYTMSG" Relationship="/EGBS/PC_SRV.FytMsg" FromRole="FromRole_FytMsg" ToRole="ToRole_FytMsg"/>
+                <NavigationProperty Name="NAV_FYTDETAY" Relationship="/EGBS/PC_SRV.FytDetay" FromRole="FromRole_FytDetay" ToRole="ToRole_FytDetay"/>
+            </EntityType>
+            <EntityType Name="ReturnMessages" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TYPE"/>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="NUMBER"/>
+                </Key>
+                <Property Name="TYPE" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="İleti tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Message Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NUMBER" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="İleti numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MESSAGE" Type="Edm.String" Nullable="false" MaxLength="220" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LOG_NO" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Günlük no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LOG_MSG_NO" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="İleti numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MESSAGE_V1" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="İleti değişkeni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MESSAGE_V2" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="İleti değişkeni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MESSAGE_V3" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="İleti değişkeni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MESSAGE_V4" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="İleti değişkeni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FormFiyatDetay" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="URUNTIPI"/>
+                    <PropertyRef Name="FORMNO"/>
+                    <PropertyRef Name="REVNO"/>
+                    <PropertyRef Name="KARAKTER"/>
+                </Key>
+                <Property Name="Btipi" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Bileşen tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FORMNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FORM No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Msgtyp" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="İleti türü" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="REVNO" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Rev No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="KARAKTER" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Karakteristik" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DEGER" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DEGERTANIM" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TIP" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FIYAT" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unit="PBRM" sap:label="Net fiyat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PBRM" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="KURALNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Kural No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BASLANGIC" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BITIS" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FormBOM" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Uruntipi"/>
+                    <PropertyRef Name="Formno"/>
+                    <PropertyRef Name="Revno"/>
+                    <PropertyRef Name="Alt"/>
+                    <PropertyRef Name="Ustindex"/>
+                    <PropertyRef Name="Altindex"/>
+                </Key>
+                <Property Name="Uruntipi" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="Ürün tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Formno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="FORM No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Revno" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Rev No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Alt" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Alternatif ÜA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ustindex" Type="Edm.Int16" Nullable="false" sap:label="Üst Index" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Altindex" Type="Edm.Int16" Nullable="false" sap:label="Alt Index" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ustkod" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Üst kod" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Altkod" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Alt kod" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tip" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Tip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Islem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="İşlem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pozisyon" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Takma yeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tabnmiktar" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="Brm" sap:label="Taban miktar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Miktar" Type="Edm.String" Nullable="false" MaxLength="13" sap:label="Miktar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Brm" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Temel ölçü brm." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Relno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Bağlantı No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kaydeden" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Kullanıcı adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kayittarih" Type="Edm.DateTime" Precision="7" sap:label="Tarih" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FormGonder" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="URUNTIPI"/>
+                    <PropertyRef Name="FORMNO"/>
+                    <PropertyRef Name="REVNO"/>
+                </Key>
+                <Property Name="URUNTIPI" Type="Edm.String" Nullable="false" MaxLength="7" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FORMNO" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="REVNO" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ISLEM" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="USER_ID" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SONUC" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ACIKLAMA" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="Hdr" sap:content-version="1">
+                <End Type="/EGBS/PC_SRV.FormHeader" Multiplicity="1" Role="FromRole_Hdr"/>
+                <End Type="/EGBS/PC_SRV.FormData" Multiplicity="*" Role="ToRole_Hdr"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Hdr">
+                        <PropertyRef Name="REVNO"/>
+                        <PropertyRef Name="FORMNO"/>
+                        <PropertyRef Name="URUNTIPI"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Hdr">
+                        <PropertyRef Name="REVNO"/>
+                        <PropertyRef Name="FORMNO"/>
+                        <PropertyRef Name="URUNTIPI"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="HdrBom" sap:content-version="1">
+                <End Type="/EGBS/PC_SRV.FormHeader" Multiplicity="1" Role="FromRole_HdrBom"/>
+                <End Type="/EGBS/PC_SRV.FormBOM" Multiplicity="*" Role="ToRole_HdrBom"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_HdrBom">
+                        <PropertyRef Name="URUNTIPI"/>
+                        <PropertyRef Name="FORMNO"/>
+                        <PropertyRef Name="REVNO"/>
+                    </Principal>
+                    <Dependent Role="ToRole_HdrBom">
+                        <PropertyRef Name="Uruntipi"/>
+                        <PropertyRef Name="Formno"/>
+                        <PropertyRef Name="Revno"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="AS_BOM" sap:content-version="1">
+                <End Type="/EGBS/PC_SRV.FormHeader" Multiplicity="1" Role="FromRole_AS_BOM"/>
+                <End Type="/EGBS/PC_SRV.FormBOM" Multiplicity="*" Role="ToRole_AS_BOM"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AS_BOM">
+                        <PropertyRef Name="URUNTIPI"/>
+                        <PropertyRef Name="FORMNO"/>
+                        <PropertyRef Name="REVNO"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AS_BOM">
+                        <PropertyRef Name="Uruntipi"/>
+                        <PropertyRef Name="Formno"/>
+                        <PropertyRef Name="Revno"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Form" sap:content-version="1">
+                <End Type="/EGBS/PC_SRV.FormHeader" Multiplicity="1" Role="FromRole_Form"/>
+                <End Type="/EGBS/PC_SRV.FormData" Multiplicity="*" Role="ToRole_Form"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Form">
+                        <PropertyRef Name="URUNTIPI"/>
+                        <PropertyRef Name="FORMNO"/>
+                        <PropertyRef Name="REVNO"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Form">
+                        <PropertyRef Name="URUNTIPI"/>
+                        <PropertyRef Name="FORMNO"/>
+                        <PropertyRef Name="REVNO"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FytDetay" sap:content-version="1">
+                <End Type="/EGBS/PC_SRV.FormFiyat" Multiplicity="*" Role="FromRole_FytDetay"/>
+                <End Type="/EGBS/PC_SRV.FormFiyatDetay" Multiplicity="*" Role="ToRole_FytDetay"/>
+            </Association>
+            <Association Name="FytMsg" sap:content-version="1">
+                <End Type="/EGBS/PC_SRV.FormFiyat" Multiplicity="1" Role="FromRole_FytMsg"/>
+                <End Type="/EGBS/PC_SRV.ReturnMessages" Multiplicity="*" Role="ToRole_FytMsg"/>
+            </Association>
+            <EntityContainer Name="/EGBS/PC_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="UserListSet" EntityType="/EGBS/PC_SRV.UserList" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="FormHeaderSet" EntityType="/EGBS/PC_SRV.FormHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="FormDataSet" EntityType="/EGBS/PC_SRV.FormData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="UrunGruplariSet" EntityType="/EGBS/PC_SRV.UrunGruplari" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FormListeSet" EntityType="/EGBS/PC_SRV.FormListe" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="MusterilerSet" EntityType="/EGBS/PC_SRV.Ulkeler" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MusterilerCollection" EntityType="/EGBS/PC_SRV.Musteriler" sap:content-version="1"/>
+                <EntitySet Name="FormFiyatSet" EntityType="/EGBS/PC_SRV.FormFiyat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ReturnMessagesSet" EntityType="/EGBS/PC_SRV.ReturnMessages" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FormFiyatDetaySet" EntityType="/EGBS/PC_SRV.FormFiyatDetay" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FormBOMSet" EntityType="/EGBS/PC_SRV.FormBOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="FormGonderSet" EntityType="/EGBS/PC_SRV.FormGonder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="FytMsgSet" Association="/EGBS/PC_SRV.FytMsg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormFiyatSet" Role="FromRole_FytMsg"/>
+                    <End EntitySet="ReturnMessagesSet" Role="ToRole_FytMsg"/>
+                </AssociationSet>
+                <AssociationSet Name="HdrSet" Association="/EGBS/PC_SRV.Form" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormHeaderSet" Role="FromRole_Form"/>
+                    <End EntitySet="FormDataSet" Role="ToRole_Form"/>
+                </AssociationSet>
+                <AssociationSet Name="Hdr_AssocSet" Association="/EGBS/PC_SRV.Hdr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormHeaderSet" Role="FromRole_Hdr"/>
+                    <End EntitySet="FormDataSet" Role="ToRole_Hdr"/>
+                </AssociationSet>
+                <AssociationSet Name="HdrBomSet" Association="/EGBS/PC_SRV.HdrBom" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormHeaderSet" Role="FromRole_HdrBom"/>
+                    <End EntitySet="FormBOMSet" Role="ToRole_HdrBom"/>
+                </AssociationSet>
+                <AssociationSet Name="AS_BOM_AssocSet" Association="/EGBS/PC_SRV.AS_BOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormHeaderSet" Role="FromRole_AS_BOM"/>
+                    <End EntitySet="FormBOMSet" Role="ToRole_AS_BOM"/>
+                </AssociationSet>
+                <AssociationSet Name="FormSet" Association="/EGBS/PC_SRV.Form" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormHeaderSet" Role="FromRole_Form"/>
+                    <End EntitySet="FormDataSet" Role="ToRole_Form"/>
+                </AssociationSet>
+                <AssociationSet Name="FytDetaySet" Association="/EGBS/PC_SRV.FytDetay" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="FormFiyatSet" Role="FromRole_FytDetay"/>
+                    <End EntitySet="FormFiyatDetaySet" Role="ToRole_FytDetay"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://localhost:8090/sap/opu/odata/EGBS/PC_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://localhost:8090/sap/opu/odata/EGBS/PC_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
